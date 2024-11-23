@@ -4,7 +4,7 @@ export default function ProjectsSidebar({
   projects,
 }) {
   return (
-    <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
+    <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl overflow-y-auto">
       <h2 className="uppercase mb-8 font-bold text-stone-200 md:text-xl">
         Your Projects
       </h2>
