@@ -62,6 +62,9 @@ function App() {
         projects: prevState.projects.filter(
           (project) => project.projectId !== prevState.selectedProjectId
         ),
+        tasks: prevState.tasks.filter(
+          (task) => task.projectId !== prevState.selectedProjectId
+        ),
         selectedProjectId: undefined,
       };
     });
