@@ -55,7 +55,26 @@ function App() {
     });
   }
 
-  function handleDeleteProject() {}
+  function handleDeleteProject() {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        projects: prevState.projects.filter(
+          (project) => project.projectId !== prevState.selectedProjectId
+        ),
+        selectedProjectId: undefined,
+      };
+    });
+  }
+
+  function handleClearTask(id) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.taskId !== id),
+      };
+    });
+  }
 
   function handleAddTask(taskText) {
     setProjectsState((prevState) => {
@@ -88,6 +107,7 @@ function App() {
       onAddTask={handleAddTask}
       onDelete={handleDeleteProject}
       tasks={selectedProjectTasks}
+      onClearTask={handleClearTask}
     />
   );
 

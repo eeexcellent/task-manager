@@ -1,6 +1,12 @@
 import Tasks from "./Tasks.jsx";
 
-export default function ProjectSelected({ project, onAddTask, onDelete, tasks }) {
+export default function ProjectSelected({
+  project,
+  onAddTask,
+  onDelete,
+  tasks,
+  onClearTask,
+}) {
   const formattedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -15,7 +21,7 @@ export default function ProjectSelected({ project, onAddTask, onDelete, tasks })
             {project.title}
           </h2>
           <button
-            onClick={() => onDelete(project.projectId)}
+            onClick={onDelete}
             className="text-stone-600 hover:text-stone-950"
           >
             Delete
@@ -26,7 +32,7 @@ export default function ProjectSelected({ project, onAddTask, onDelete, tasks })
           {project.description}
         </h3>
       </header>
-      <Tasks tasks={tasks} onAdd={onAddTask} />
+      <Tasks tasks={tasks} onAdd={onAddTask} onClear={onClearTask} />
     </div>
   );
 }
